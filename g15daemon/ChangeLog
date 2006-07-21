@@ -22,7 +22,12 @@
     Client screens can be cycled through by pressing the 'L1' key.
 */
 
-Version 1.0-pre0
+Version 1.0-pre0	16/07/2006
 - Initial release
-1.0 svn
-- Add crude WBMP support and Perl bindings.
+Version 1.1 		21/07/2006
+- Add WBMP support for partial compatibility with libGD.
+- add Perl bindings for client library available in lang-bindings
+  subdirectory.
+- add example perl scripts in contrib directory.
+- add rpm.spec file to archive
+- misc bugfixes
