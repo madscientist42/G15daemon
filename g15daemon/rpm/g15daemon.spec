@@ -14,6 +14,7 @@ Vendor: NONE
 Packager: Mike Lampard <mlampard@users.sourceforge.net>
 Buildroot: /var/tmp/g15daemon-%{PACKAGE_VERSION}-root
 BuildRequires: daemon-devel
+BuildRequires: libg15-devel
 Requires: daemon
 Requires: libg15
 Provides: g15daemon
