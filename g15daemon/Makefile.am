@@ -1,9 +1,11 @@
-LLIBDIR=@LIBDIR@
 
+METASOURCES = AUTO
+sbin_PROGRAMS = g15daemon
+noinst_PROGRAMS = g15daemontest
+noinst_HEADERS = g15logo.h
+g15daemon_SOURCES = g15_net.c g15_uinput.c logo.h utility_funcs.c \
+	g15daemon.h main.c
+g15daemontest_SOURCES = lcdclient_test.c
+INCLUDES = -I$(top_builddir)/libg15daemon_client/
+g15daemontest_LDADD = $(top_builddir)/libg15daemon_client/libg15daemon_client.la
 
-SUBDIRS =  libg15daemon_client g15daemon
-INCLUDES =  -I$(top_srcdir)/libg15daemon_client -I$(top_srcdir)/g15daemon
-EXTRA_DIST = debian
-
-dist-hook:
-	rm -rf `find $(distdir)/debian -name .svn`
