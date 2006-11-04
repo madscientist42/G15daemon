@@ -1,16 +1,11 @@
-LLIBDIR=@LIBDIR@
 
-
-SUBDIRS =  libg15daemon_client g15daemon
-INCLUDES =  -I$(top_srcdir)/libg15daemon_client -I$(top_srcdir)/g15daemon
-EXTRA_DIST = debian contrib Documentation g15daemon_xmms lang-bindings patches rpm README.usage FAQ LICENSE
-
-docdir = $(prefix)/share/doc/$(PACKAGE)-$(VERSION)
-doc_DATA = FAQ README.usage README ChangeLog TODO AUTHORS NEWS LICENSE
-
-man1_MANS = $(top_srcdir)/Documentation/g15daemon.1
-man3_MANS = $(top_srcdir)/Documentation/g15daemon_client_devel.3
-
-dist-hook:
-	rm -rf `find $(distdir)/debian -name .svn`
+METASOURCES = AUTO
+sbin_PROGRAMS = g15daemon
+noinst_PROGRAMS = g15daemontest
+noinst_HEADERS = g15logo.h
+g15daemon_SOURCES = g15_net.c g15_uinput.c logo.h utility_funcs.c \
+	g15daemon.h main.c linked_lists.c gfx_primitives.c
+g15daemontest_SOURCES = lcdclient_test.c
+INCLUDES = -I$(top_builddir)/libg15daemon_client/
+g15daemontest_LDADD = $(top_builddir)/libg15daemon_client/libg15daemon_client.la
 
